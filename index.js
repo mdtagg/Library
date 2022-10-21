@@ -54,3 +54,11 @@ console.log(myBooks)
 
 displayBooks(myBooks)
 
+
+const addBookButton = document.querySelector('.newBookButton')
+addBookButton.addEventListener('click', () => {
+    let form = document.createElement('form')
+    window.prompt()
+
+})
+
