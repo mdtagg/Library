@@ -56,9 +56,12 @@ displayBooks(myBooks)
 
 
 const addBookButton = document.querySelector('.newBookButton')
-addBookButton.addEventListener('click', () => {
-    let form = document.createElement('form')
-    window.prompt()
+addBookButton.addEventListener('click', addZ)
 
-})
+function addZ() {
+    console.log('test')
+    let form = document.querySelector('.book-form')
+    form.classList.add('.z-index')
+        
+}
 
