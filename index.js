@@ -70,6 +70,9 @@ function closeForm() {
     form.style.display = 'none'
 }
 
+const addBook = document.getElementById('addBook')
+addBook.addEventListener('click',closeForm)
+
 const resultsList = document.getElementById('books')
 new URLSearchParams(window.location.search).forEach((value,name) => {
     resultsList.append(`${name}:${value}`)
