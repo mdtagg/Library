@@ -8,62 +8,45 @@
     font-family:roboto;
 }
 
-/* body {
-    display:flex;
-    flex-direction: column;
-} */
-
-
-
 .container {
     display:flex;
     flex-direction: column;
     justify-content: center;
 }
 
-form {
-    display:flex;
-    flex-direction: column;
-    background-color: grey;
-    padding:1.5rem;
-    width:20%;
-}
-
-
 nav {
-    height:15vh;
+    height:10vh;
     width:100vw;
-    background-color:gold;
+    background-color:burlywood;
     display:flex;
     color:white;
     align-items: center;
-    justify-content: space-between;
-    padding:1.5rem;
+    padding:1rem;
     /* border:1px solid black; */
 }
 
 h1 {
-    font-size:4rem;
-}
-
-nav button {
-    display:flex;
-    justify-items: flex-end;
-    /* border:1px solid black; */
+    font-size:2rem;
+    color:black;
 }
 
 main {
-    height:30vh;
-    background-color: red;
+    height:100vh;
+    background-color:brown;
+    display:flex;
 }
 
 .content {
-    /* height:50%; */
-    /* width:100; */
+    width:80%;
     display:flex;
-    border:5px solid white;
     gap:20px;
-    /* flex-direction: column; */
+    border:1px solid black;
+}
+
+.information {
+    width:20%;
+    background-color: whitesmoke;
+    border:1px solid black;
 }
 
 .card {
@@ -81,6 +64,15 @@ main {
 
 .book-form {
     display:hidden;
+}
+
+
+form {
+    display:flex;
+    flex-direction: column;
+    background-color: grey;
+    padding:1.5rem;
+    width:20%;
 }
 
 .test-form > * {
