@@ -1,67 +1,79 @@
 
-let myBooks = []
+// let myBooks = []
 
-function book(title,author,totalPages,completedPages) {
-    this.title = title,
-    this.author = author,
-    this.totalPages = totalPages,
-    this.completedPages = completedPages
-}
+// function book(title,author,totalPages,completedPages) {
+//     this.title = title,
+//     this.author = author,
+//     this.totalPages = totalPages,
+//     this.completedPages = completedPages
+// }
 
-function addBook(book) {
-    myBooks.push(book)
-}
+// function addBook(book) {
+//     myBooks.push(book)
+// }
 
-function displayBooks(myBooks) {
-    for(let i = 0;i < myBooks.length;i++) {
-        let bookContent = document.querySelector('.content')
-        let bookCard = document.createElement('div')
-        bookCard.classList.add('card')
+// function displayBooks(myBooks) {
+//     for(let i = 0;i < myBooks.length;i++) {
+//         let bookContent = document.querySelector('.content')
+//         let bookCard = document.createElement('div')
+//         bookCard.classList.add('card')
 
-        bookCard.appendChild(getBookInfo(myBooks[i]))
-        // bookCard.textContent = `${myBooks[i]['title']}, ${myBooks[i]['author']}`
-        bookContent.appendChild(bookCard)
-    }
-}
+//         bookCard.appendChild(getBookInfo(myBooks[i]))
+//         // bookCard.textContent = `${myBooks[i]['title']}, ${myBooks[i]['author']}`
+//         bookContent.appendChild(bookCard)
+//     }
+// }
 
-function getBookInfo(book) {
+// function getBookInfo(book) {
     
-    let info = document.createElement('pre')
+//     let info = document.createElement('pre')
 
-    info.textContent = 
-    `Title: ${book['title']},
-    Author: ${book['author']},
-    Total Pages: ${book['totalPages']},
-    Pages Read: ${book['completedPages']}`
+//     info.textContent = 
+//     `Title: ${book['title']},
+//     Author: ${book['author']},
+//     Total Pages: ${book['totalPages']},
+//     Pages Read: ${book['completedPages']}`
     
-    return info
-}
+//     return info
+// }
 
 
-const harryPotter = new book('Sorcerers Stone','JK Rowling','300', '250')
+// const harryPotter = new book('Sorcerers Stone','JK Rowling','300', '250')
 
-addBook(harryPotter)
+// addBook(harryPotter)
 
-const gameOfThrones = new book('Ice and Fire','George RR Martin', "600",'400')
+// const gameOfThrones = new book('Ice and Fire','George RR Martin', "600",'400')
 
-addBook(gameOfThrones)
+// addBook(gameOfThrones)
 
-const theRoad = new book('The Road','Cormac Mccarthy','200','100')
+// const theRoad = new book('The Road','Cormac Mccarthy','200','100')
 
-addBook(theRoad)
+// addBook(theRoad)
 
-console.log(myBooks)
+// console.log(myBooks)
 
-displayBooks(myBooks)
+// displayBooks(myBooks)
 
 
 const addBookButton = document.querySelector('.newBookButton')
-addBookButton.addEventListener('click', addZ)
+let form = document.querySelector('.book-form')
+addBookButton.addEventListener('click', popUp)
 
-function addZ() {
-    console.log('test')
-    let form = document.querySelector('.book-form')
-    form.classList.add('.z-index')
-        
+function popUp() {
+    form.style.display = 'block'
 }
 
+const closeButton = document.getElementById('close-button')
+closeButton.addEventListener('click', closeForm)
+
+function closeForm() {
+    form.style.display = 'none'
+}
+
+const resultsList = document.getElementById('books')
+new URLSearchParams(window.location.search).forEach((value,name) => {
+    resultsList.append(`${name}:${value}`)
+    resultsList.append(document.createElement('br'))
+})
+
+console.log(resultsList)
