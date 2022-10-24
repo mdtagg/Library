@@ -46,6 +46,18 @@ main {
     display:block;
 }
 
+#book-card-container {
+    display:flex;
+    gap:20px;
+}
+
+.card {
+    height:350px;
+    width:300px;
+    background-color: white;
+    color:black;
+}
+
 .book-form {
     margin:auto;
     height:60vh;
@@ -75,7 +87,7 @@ main {
     gap:30px;
 }
 
-#addBook {
+#addBookButton {
     background-color: rgb(52, 189, 52);
     cursor:pointer;
 }

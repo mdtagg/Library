@@ -70,29 +70,43 @@ function closeForm() {
     form.style.display = 'none'
 }
 
+
+
+
+
+
+
 //Working solution
 
-let books = document.getElementById('books')
-const bookTitle = document.getElementById('book-title')
-
-const title = document.getElementById('title')
+let bookCards = document.getElementById('book-card-container')
+const bookTitle = document.getElementById('title')
 
 
-function getBookData() {
-    bookTitle.textContent = title.value
-    console.log(title.value)
+const addBook = document.getElementById('addBookButton')
+addBook.addEventListener('click', closeForm)
+addBook.addEventListener('click', createBookCard)
+addBook.addEventListener('click', createBook)
+
+function createBookCard() {
+    let card = document.createElement('div')
+    card.classList.add('card')
+    bookCards.appendChild(card)
 }
 
-const addBook = document.getElementById('addBook')
-addBook.addEventListener('click', closeForm)
-addBook.addEventListener('click', getBookData)
+let newBook = new book(bookTitleValue)
+
+function book(title) {
+    this.title = title
+}
+
+bookCards.appendChild(newBook)
 
 
 
 
 
 
-const author = document.getElementById('author')
+// const author = document.getElementById('author')
 const pages = document.getElementById('pages')
 
 
