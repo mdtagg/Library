@@ -8,12 +8,6 @@
     font-family:roboto;
 }
 
-.container {
-    /* display:flex; */
-    /* flex-direction: column;
-    justify-content: center; */
-}
-
 nav {
     height:10vh;
     width:100vw;
@@ -23,32 +17,11 @@ nav {
     align-items: center;
     justify-content: space;
     padding:1rem;
-    /* border:1px solid black; */
 }
 
 h1 {
     font-size:2rem;
     color:black;
-}
-
-main {
-    height:90vh;
-    width:100vw;
-    background-color:brown;
-    padding:7rem;
-    /* display:flex; */
-}
-
-.information {
-    width:20%;
-    background-color: whitesmoke;
-    /* border:1px solid black; */
-}
-
-.card {
-    /* display:flex; */
-    /* flex-direction: column; */
-    color:white;
 }
 
 .newBookButton {
@@ -57,14 +30,27 @@ main {
     margin-left:450px;
 }
 
+main {
+    height:90vh;
+    width:100vw;
+    background-color:brown;
+    padding:7rem;
+}
+
+#books {
+    /* border:1px solid black; */
+    /* z-index: 1; */
+}
+
+#book-title {
+    display:block;
+}
+
 .book-form {
     margin:auto;
     height:60vh;
     width:20vw; 
     padding:1.5rem;
-    /* border:1px solid black; */
-    /* background-color:rgba(0,0,0,0.5);  */
-    z-index: 1; 
 }
 
 #form {
@@ -78,30 +64,20 @@ main {
     border:1px solid black;
 }
 
+#close-button {
+    margin-left:5rem;
+    cursor:pointer;
+}
+
 .inputs {
     display:flex;
     flex-direction: column;
     gap:30px;
 }
 
-form span {
-    margin-left:5rem;
-    cursor:pointer;
-}
-
-form label {
-    /* padding-top:1.5rem; */
-}
-
-form button {
-    /* margin-top:1.5rem; */
+#addBook {
     background-color: rgb(52, 189, 52);
     cursor:pointer;
 }
 
-form > * {
-    /* display:hidden; */
-    /* height:100%;
-    width:100%; */
-}
 

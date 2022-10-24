@@ -70,13 +70,57 @@ function closeForm() {
     form.style.display = 'none'
 }
 
+//Working solution
+
+let books = document.getElementById('books')
+const bookTitle = document.getElementById('book-title')
+
+const title = document.getElementById('title')
+
+
+function getBookData() {
+    bookTitle.textContent = title.value
+    console.log(title.value)
+}
+
 const addBook = document.getElementById('addBook')
-addBook.addEventListener('click',closeForm)
+addBook.addEventListener('click', closeForm)
+addBook.addEventListener('click', getBookData)
 
-const resultsList = document.getElementById('books')
-new URLSearchParams(window.location.search).forEach((value,name) => {
-    resultsList.append(`${name}:${value}`)
-    resultsList.append(document.createElement('br'))
-})
 
-console.log(resultsList)
+
+
+
+
+const author = document.getElementById('author')
+const pages = document.getElementById('pages')
+
+
+
+
+
+
+
+
+
+
+
+
+
+//problem
+ 
+// const resultsList = document.getElementById('books')
+
+// addBook.addEventListener('click', () => popUpBookCard)
+
+// function popUpBookCard() {
+//     console.log('pop up book ran')
+//     resultsList.style.display = 'block'
+//     new URLSearchParams(window.location.search).forEach((value,name) => {
+//         resultsList.append(`${name}:${value}`)
+//         resultsList.append(document.createElement('br'))
+//     })
+// }
+
+
+// console.log(resultsList)
