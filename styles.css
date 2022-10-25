@@ -36,8 +36,6 @@ main {
     background-color:brown;
     display:flex;
     align-items: center;
-    /* justify-content: center; */
-    /* padding:7rem; */
 }
 
 #book-title {
@@ -48,14 +46,30 @@ main {
     display:flex;
     gap:20px;
     justify-content: flex-start;
+    flex-wrap: wrap;
+    
 }
 
 .card {
-    height:350px;
+    max-height:350px;
+    min-height:300px;
     width:250px;
     background-color: white;
     color:black;
     margin-left:50px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    padding:1.5rem;
+}
+
+.card-title {
+    font-weight:800;
+}
+
+.card input {
+    display:block;
+    /* margin-right:9rem; */
 }
 
 .book-form {
@@ -68,6 +82,7 @@ main {
     z-index: 1;
     background-color: rgba(0,0,0,0.4);
     position:fixed;
+    backdrop-filter: blur(4px);
     /* border:5px solid black; */
 }
 
