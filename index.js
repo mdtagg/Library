@@ -46,9 +46,8 @@ function createBookCard() {
     let titleValue = titleNode.value
     let authorTitle = authorNode.value
     let pagesTitle = pagesNode.value 
-    let readTitle = haveReadNode.value
 
-    let newBook = new Book(titleValue,authorTitle,pagesTitle,readTitle)
+    let newBook = new Book(titleValue,authorTitle,pagesTitle)
 
     let cardTitle = document.createElement('p')
     cardTitle.classList.add('card-title')
@@ -61,14 +60,19 @@ function createBookCard() {
     pagesValue.textContent = newBook.pages
 
     let haveReadLabel = document.createElement('label')
-
+    haveReadLabel.setAttribute('for','haveRead')
+    haveReadLabel.textContent = 'Read?'
+    
 
     let readValue = document.createElement('input')
     readValue.setAttribute('type','checkbox')
+    readValue.setAttribute('name','haveRead')
+    readValue.setAttribute('id','haveRead')
 
     card.appendChild(cardTitle)
     card.appendChild(authorValue)
     card.appendChild(pagesValue)
+    card.appendChild(haveReadLabel)
     card.appendChild(readValue)
 }
 
