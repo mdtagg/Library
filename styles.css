@@ -40,11 +40,6 @@ main {
     /* padding:7rem; */
 }
 
-#books {
-    /* border:1px solid black; */
-    /* z-index: 1; */
-}
-
 #book-title {
     display:block;
 }
@@ -53,10 +48,6 @@ main {
     display:flex;
     gap:20px;
     justify-content: flex-start;
-    /* border:3px solid black; */
-    
-    /* top:0;
-    left:0; */
 }
 
 .card {
