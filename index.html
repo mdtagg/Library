@@ -18,7 +18,7 @@
     </nav>
     <main>
         <div id="book-card-container">
-        
+            
         </div>
         <div class="book-form" id="bookForm" style="display:none;">
             <form id="form">
@@ -33,9 +33,10 @@
                     <p>
                         <input type="text" name="pages" id="pages" placeholder="Total Pages">
                     </p>
-                    <p>
-                        <input type="checkbox" name="read" id="read">
-                    </p>
+                    <select id="have-read">
+                        <option>Read</option>
+                        <option>Not read</option>
+                    </select>
                 </div>      
                 <button type="button" id='addBookButton'>Add</button>
             </form>

@@ -34,6 +34,7 @@ const addBook = document.getElementById('addBookButton')
 const titleNode = document.getElementById('title')
 const authorNode = document.getElementById('author')
 const pagesNode = document.getElementById('pages')
+const readNode = document.getElementById('have-read')
 
 addBook.addEventListener('click', closeForm)
 addBook.addEventListener('click', addBookToLibrary)
@@ -42,8 +43,10 @@ function addBookToLibrary() {
     let titleNodeValue = titleNode.value
     let authorNodeValue = authorNode.value
     let pagesNodeValue = pagesNode.value
+    let readNodeValue = readNode.value
+    console.log(readNodeValue)
 
-    let newBook = new Book(titleNodeValue,authorNodeValue,pagesNodeValue)
+    let newBook = new Book(titleNodeValue,authorNodeValue,pagesNodeValue,readNodeValue)
 
     myLibrary.push(newBook)
     console.log(myLibrary)
@@ -84,21 +87,42 @@ function createBookCard(library) {
         bookCard.appendChild(authorText)
         bookCard.appendChild(pagesNumber)
 
+        let readButtonContainer = document.createElement('span')
+        let readButton = document.createElement('input')
+        readButton.setAttribute('type','checkbox')
+        // readButton.setAttribute('id','readButton')
+
+        readButtonContainer.appendChild(readButton)
+
+
+        if(library[i].read === 'Read') {
+            bookCard.style.borderLeft = '10px solid green'
+            let haveRead = document.createElement('p')
+            haveRead.textContent = 'Read'
+            readButton.checked = true
+            haveRead.appendChild(readButtonContainer)
+            bookCard.appendChild(haveRead)
+        }else {
+            bookCard.style.borderLeft = '10px solid yellow'
+            let haveNotRead = document.createElement('p')
+            haveNotRead.textContent = 'Not Read'
+            haveNotRead.appendChild(readButtonContainer)
+            bookCard.appendChild(haveNotRead)
+        }
+        
         bookCardContainer.appendChild(bookCard)
     }
 }
 
-function Book(title,author,pages) {
+function Book(title,author,pages,read) {
     this.title = title,
     this.author = author,
-    this.pages = pages
+    this.pages = pages,
+    this.read = read
 }
 
 function deleteCard(e) {
     let allCards = document.querySelectorAll('.card')
-    console.log(allCards)
-    console.log(e)
-    console.log(e.target.dataset.attribute)
     for(let i = 0;i < allCards.length;i++) {
         if(allCards[i].dataset.attribute === e.target.dataset.attribute) {
             allCards[i].style.display = 'none'
