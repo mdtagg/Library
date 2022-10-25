@@ -69,11 +69,9 @@ main {
 
 .card input {
     display:block;
-    /* margin-right:9rem; */
 }
 
 .book-form {
-    /* margin:auto; */
     display:flex;
     justify-content: center;
     align-items: center;
@@ -83,7 +81,6 @@ main {
     background-color: rgba(0,0,0,0.4);
     position:fixed;
     backdrop-filter: blur(4px);
-    /* border:5px solid black; */
 }
 
 #form {
@@ -97,8 +94,6 @@ main {
     margin:auto;
     margin-top:200px;
     z-index:2;
-    /* align-items: center; */
-    /* border:1px solid black; */
 }
 
 #close-button {
@@ -122,5 +117,14 @@ main {
     background-color: rgb(52, 189, 52);
     cursor:pointer;
 }
+
+.solid-green-border {
+    border-left:10px solid green;
+}
+
+.solid-yellow-border {
+    border-left:10px solid yellow;
+}
+    
 
 

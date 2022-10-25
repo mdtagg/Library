@@ -90,26 +90,28 @@ function createBookCard(library) {
         let readButtonContainer = document.createElement('span')
         let readButton = document.createElement('input')
         readButton.setAttribute('type','checkbox')
-        // readButton.setAttribute('id','readButton')
+        readButton.setAttribute('data-attribute',`${counter}`)
+        readButton.addEventListener('click', toggleRead)
 
         readButtonContainer.appendChild(readButton)
 
 
         if(library[i].read === 'Read') {
-            bookCard.style.borderLeft = '10px solid green'
+            bookCard.classList.add('solid-green-border')
+            // bookCard.style.borderLeft = '10px solid green'
             let haveRead = document.createElement('p')
             haveRead.textContent = 'Read'
             readButton.checked = true
             haveRead.appendChild(readButtonContainer)
             bookCard.appendChild(haveRead)
         }else {
-            bookCard.style.borderLeft = '10px solid yellow'
+            bookCard.classList.add('solid-yellow-border')
+            // bookCard.style.borderLeft = '10px solid yellow'
             let haveNotRead = document.createElement('p')
             haveNotRead.textContent = 'Not Read'
             haveNotRead.appendChild(readButtonContainer)
             bookCard.appendChild(haveNotRead)
         }
-        
         bookCardContainer.appendChild(bookCard)
     }
 }
@@ -126,6 +128,20 @@ function deleteCard(e) {
     for(let i = 0;i < allCards.length;i++) {
         if(allCards[i].dataset.attribute === e.target.dataset.attribute) {
             allCards[i].style.display = 'none'
+        }
+    }
+}
+
+function toggleRead(e) {
+
+    let isChecked = document.querySelectorAll('.card')
+    
+    for(let i = 0;i < isChecked.length;i++) {
+
+        if(!e.target.checked && isChecked[i].dataset.attribute === e.target.dataset.attribute) {
+            isChecked[i].style.borderLeft = '10px solid yellow'
+        } else {
+            isChecked[i].style.borderLeft = '10px solid green'
         }
     }
 }
