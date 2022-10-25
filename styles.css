@@ -34,7 +34,10 @@ main {
     height:90vh;
     width:100vw;
     background-color:brown;
-    padding:7rem;
+    display:flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* padding:7rem; */
 }
 
 #books {
@@ -49,31 +52,47 @@ main {
 #book-card-container {
     display:flex;
     gap:20px;
+    justify-content: flex-start;
+    /* border:3px solid black; */
+    
+    /* top:0;
+    left:0; */
 }
 
 .card {
     height:350px;
-    width:300px;
+    width:250px;
     background-color: white;
     color:black;
+    margin-left:50px;
 }
 
 .book-form {
-    margin:auto;
-    height:60vh;
-    width:20vw; 
-    padding:1.5rem;
+    /* margin:auto; */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:110vh;
+    width:100vw; 
+    z-index: 1;
+    background-color: rgba(0,0,0,0.4);
+    position:fixed;
+    /* border:5px solid black; */
 }
 
 #form {
-    height:100%;
-    width:100%;
+    height:50%;
+    width:15%;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     background-color: grey;
     padding:1.5rem;
-    border:1px solid black;
+    margin:auto;
+    margin-top:200px;
+    z-index:2;
+    /* align-items: center; */
+    /* border:1px solid black; */
 }
 
 #close-button {

@@ -80,26 +80,72 @@ function closeForm() {
 
 let bookCards = document.getElementById('book-card-container')
 const bookTitle = document.getElementById('title')
+const author = document.getElementById('author')
+const pages = document.getElementById('pages')
 
 
 const addBook = document.getElementById('addBookButton')
 addBook.addEventListener('click', closeForm)
 addBook.addEventListener('click', createBookCard)
-addBook.addEventListener('click', createBook)
+// addBook.addEventListener('click', createBook)
 
 function createBookCard() {
     let card = document.createElement('div')
     card.classList.add('card')
     bookCards.appendChild(card)
+    console.log(author.value)
+
+    let bookTitleValue = bookTitle.value
+    let authorTitle = author.value
+    let pagesTitle = pages.value 
+
+    let newBook = new Book(bookTitleValue,authorTitle,pagesTitle)
+    
+    let cardTitle = document.createElement('p')
+    cardTitle.textContent = newBook.title
+
+    let authorValue = document.createElement('p')
+    authorValue.textContent = newBook.author
+
+    let pagesValue = document.createElement('p')
+    pagesValue.textContent = newBook.pages
+
+    card.appendChild(cardTitle)
+    card.appendChild(authorValue)
+    card.appendChild(pagesValue)
+
+
+    // card.appendChild(cardTitle)
+    // let authorValue = author.value
+    // let pagesValue = pages.value
+
 }
 
-let newBook = new book(bookTitleValue)
-
-function book(title) {
-    this.title = title
+function Book(title,author,pages) {
+    this.title = title,
+    this.author = author,
+    this.pages = pages
 }
 
-bookCards.appendChild(newBook)
+
+
+
+
+
+
+
+// function createBook() {
+//     let bookCard = document.getElementsByClassName('card')
+//     new book(bookTitle.value)
+    
+// }
+
+// function book(title) {
+//     this.title = title
+//     console.log(title)
+// }
+
+// bookCards.appendChild(newBook)
 
 
 
@@ -107,9 +153,11 @@ bookCards.appendChild(newBook)
 
 
 // const author = document.getElementById('author')
-const pages = document.getElementById('pages')
 
 
+// let cardTitle = document.createElement('div')
+//     let cardAuthor = document.createElement('div')
+//     let cardPages = document.createElement('div')
 
 
 
