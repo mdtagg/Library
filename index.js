@@ -98,7 +98,6 @@ function createBookCard(library) {
 
         if(library[i].read === 'Read') {
             bookCard.classList.add('solid-green-border')
-            // bookCard.style.borderLeft = '10px solid green'
             let haveRead = document.createElement('p')
             haveRead.textContent = 'Read'
             readButton.checked = true
@@ -106,9 +105,8 @@ function createBookCard(library) {
             bookCard.appendChild(haveRead)
         }else {
             bookCard.classList.add('solid-yellow-border')
-            // bookCard.style.borderLeft = '10px solid yellow'
             let haveNotRead = document.createElement('p')
-            haveNotRead.textContent = 'Not Read'
+            haveNotRead.textContent = 'Read'
             haveNotRead.appendChild(readButtonContainer)
             bookCard.appendChild(haveNotRead)
         }
@@ -140,7 +138,7 @@ function toggleRead(e) {
 
         if(!e.target.checked && isChecked[i].dataset.attribute === e.target.dataset.attribute) {
             isChecked[i].style.borderLeft = '10px solid yellow'
-        } else {
+        } else if(e.target.checked && isChecked[i].dataset.attribute === e.target.dataset.attribute){
             isChecked[i].style.borderLeft = '10px solid green'
         }
     }
