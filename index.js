@@ -66,6 +66,7 @@ function createBookCard(library) {
         let deleteBookCard = document.createElement('p')
         deleteBookCard.classList.add('card-close')
         deleteBookCard.textContent = 'x'
+        deleteBookCard.setAttribute('data-attribute',`${counter}`)
         deleteBookCard.addEventListener('click', deleteCard)
 
         let titleText = document.createElement('p')
@@ -94,7 +95,15 @@ function Book(title,author,pages) {
 }
 
 function deleteCard(e) {
-
+    let allCards = document.querySelectorAll('.card')
+    console.log(allCards)
+    console.log(e)
+    console.log(e.target.dataset.attribute)
+    for(let i = 0;i < allCards.length;i++) {
+        if(allCards[i].dataset.attribute === e.target.dataset.attribute) {
+            allCards[i].style.display = 'none'
+        }
+    }
 }
 
 // let bookCards = document.getElementById('book-card-container')
