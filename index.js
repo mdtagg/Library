@@ -27,53 +27,64 @@ function closeForm(e) {
 
 //creating book cards
 
-let bookCards = document.getElementById('book-card-container')
+let myLibrary = []
+const bookCardContainer = document.getElementById('book-card-container')
+const addBook = document.getElementById('addBookButton')
+
 const titleNode = document.getElementById('title')
 const authorNode = document.getElementById('author')
 const pagesNode = document.getElementById('pages')
-const haveReadNode = document.getElementById('read')
 
-
-const addBook = document.getElementById('addBookButton')
 addBook.addEventListener('click', closeForm)
-addBook.addEventListener('click', createBookCard)
+addBook.addEventListener('click', addBookToLibrary)
 
-function createBookCard() {
-    let card = document.createElement('div')
-    card.classList.add('card')
-    bookCards.appendChild(card)
+function addBookToLibrary() {
+    let titleNodeValue = titleNode.value
+    let authorNodeValue = authorNode.value
+    let pagesNodeValue = pagesNode.value
 
-    let titleValue = titleNode.value
-    let authorTitle = authorNode.value
-    let pagesTitle = pagesNode.value 
+    let newBook = new Book(titleNodeValue,authorNodeValue,pagesNodeValue)
 
-    let newBook = new Book(titleValue,authorTitle,pagesTitle)
+    myLibrary.push(newBook)
+    console.log(myLibrary)
 
-    let cardTitle = document.createElement('p')
-    cardTitle.classList.add('card-title')
-    cardTitle.textContent = newBook.title
+    createBookCard(myLibrary)
+}
 
-    let authorValue = document.createElement('p')
-    authorValue.textContent = newBook.author
+function createBookCard(library) {
 
-    let pagesValue = document.createElement('p')
-    pagesValue.textContent = newBook.pages
+    let counter = 0
+    if(library.length > 1) {
+        counter = library.length - 1
+    }
+    for(let i = counter;i < library.length;i++) {
 
-    let haveReadLabel = document.createElement('label')
-    haveReadLabel.setAttribute('for','haveRead')
-    haveReadLabel.textContent = 'Read?'
-    
+        let bookCard = document.createElement('div')
+        bookCard.classList.add('card')
+        bookCard.setAttribute('data-attribute',`${counter}`)
 
-    let readValue = document.createElement('input')
-    readValue.setAttribute('type','checkbox')
-    readValue.setAttribute('name','haveRead')
-    readValue.setAttribute('id','haveRead')
+        let deleteBookCard = document.createElement('p')
+        deleteBookCard.classList.add('card-close')
+        deleteBookCard.textContent = 'x'
+        deleteBookCard.addEventListener('click', deleteCard)
 
-    card.appendChild(cardTitle)
-    card.appendChild(authorValue)
-    card.appendChild(pagesValue)
-    card.appendChild(haveReadLabel)
-    card.appendChild(readValue)
+        let titleText = document.createElement('p')
+        titleText.classList.add('card-title')
+        titleText.textContent = library[i].title
+
+        let authorText = document.createElement('p')
+        authorText.textContent = library[i].author
+
+        let pagesNumber = document.createElement('p')
+        pagesNumber.textContent = library[i].pages
+
+        bookCard.appendChild(deleteBookCard)
+        bookCard.appendChild(titleText)
+        bookCard.appendChild(authorText)
+        bookCard.appendChild(pagesNumber)
+
+        bookCardContainer.appendChild(bookCard)
+    }
 }
 
 function Book(title,author,pages) {
@@ -81,3 +92,60 @@ function Book(title,author,pages) {
     this.author = author,
     this.pages = pages
 }
+
+function deleteCard(e) {
+
+}
+
+// let bookCards = document.getElementById('book-card-container')
+
+// const haveReadNode = document.getElementById('read')
+
+
+// const addBook = document.getElementById('addBookButton')
+// addBook.addEventListener('click', closeForm)
+// addBook.addEventListener('click', createBookCard)
+
+// function createBookCard() {
+//     let card = document.createElement('div')
+//     card.classList.add('card')
+//     bookCards.appendChild(card)
+
+//     let titleValue = titleNode.value
+//     let authorTitle = authorNode.value
+//     let pagesTitle = pagesNode.value 
+
+//     let newBook = new Book(titleValue,authorTitle,pagesTitle)
+
+//     let cardTitle = document.createElement('p')
+//     cardTitle.classList.add('card-title')
+//     cardTitle.textContent = newBook.title
+
+//     let authorValue = document.createElement('p')
+//     authorValue.textContent = newBook.author
+
+//     let pagesValue = document.createElement('p')
+//     pagesValue.textContent = newBook.pages
+
+//     let haveReadLabel = document.createElement('label')
+//     haveReadLabel.setAttribute('for','haveRead')
+//     haveReadLabel.textContent = 'Read?'
+    
+
+//     let readValue = document.createElement('input')
+//     readValue.setAttribute('type','checkbox')
+//     readValue.setAttribute('name','haveRead')
+//     readValue.setAttribute('id','haveRead')
+
+//     card.appendChild(cardTitle)
+//     card.appendChild(authorValue)
+//     card.appendChild(pagesValue)
+//     card.appendChild(haveReadLabel)
+//     card.appendChild(readValue)
+// }
+
+// function Book(title,author,pages) {
+//     this.title = title,
+//     this.author = author,
+//     this.pages = pages
+// }

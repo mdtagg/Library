@@ -106,6 +106,12 @@ main {
     cursor:pointer;
 }
 
+.card-close {
+    display:flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
 .inputs {
     display:flex;
     flex-direction: column;
