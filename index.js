@@ -44,13 +44,10 @@ function addBookToLibrary() {
     let authorNodeValue = authorNode.value
     let pagesNodeValue = pagesNode.value
     let readNodeValue = readNode.value
-    console.log(readNodeValue)
 
     let newBook = new Book(titleNodeValue,authorNodeValue,pagesNodeValue,readNodeValue)
 
     myLibrary.push(newBook)
-    console.log(myLibrary)
-
     createBookCard(myLibrary)
 }
 
@@ -144,55 +141,3 @@ function toggleRead(e) {
     }
 }
 
-// let bookCards = document.getElementById('book-card-container')
-
-// const haveReadNode = document.getElementById('read')
-
-
-// const addBook = document.getElementById('addBookButton')
-// addBook.addEventListener('click', closeForm)
-// addBook.addEventListener('click', createBookCard)
-
-// function createBookCard() {
-//     let card = document.createElement('div')
-//     card.classList.add('card')
-//     bookCards.appendChild(card)
-
-//     let titleValue = titleNode.value
-//     let authorTitle = authorNode.value
-//     let pagesTitle = pagesNode.value 
-
-//     let newBook = new Book(titleValue,authorTitle,pagesTitle)
-
-//     let cardTitle = document.createElement('p')
-//     cardTitle.classList.add('card-title')
-//     cardTitle.textContent = newBook.title
-
-//     let authorValue = document.createElement('p')
-//     authorValue.textContent = newBook.author
-
-//     let pagesValue = document.createElement('p')
-//     pagesValue.textContent = newBook.pages
-
-//     let haveReadLabel = document.createElement('label')
-//     haveReadLabel.setAttribute('for','haveRead')
-//     haveReadLabel.textContent = 'Read?'
-    
-
-//     let readValue = document.createElement('input')
-//     readValue.setAttribute('type','checkbox')
-//     readValue.setAttribute('name','haveRead')
-//     readValue.setAttribute('id','haveRead')
-
-//     card.appendChild(cardTitle)
-//     card.appendChild(authorValue)
-//     card.appendChild(pagesValue)
-//     card.appendChild(haveReadLabel)
-//     card.appendChild(readValue)
-// }
-
-// function Book(title,author,pages) {
-//     this.title = title,
-//     this.author = author,
-//     this.pages = pages
-// }
